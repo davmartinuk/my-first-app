@@ -1,29 +1,36 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
 import Contact from "./Contact";
 
-
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 
 function Main(){
 	return(
-			<Router>
-			<div>
-				<h1>Single page add</h1>
-				<ul>
-					<li><Link to="/">Home</Link></li>
-					<li><Link to="/About">About</Link></li>
-					<li><Link to="/Contact">Contact</Link></li>
-				</ul>
-				<div className="content">
-					<Route path="/" exact component={Home}/>
-					<Route path="/About" component={About}/>
-					<Route path="/Contact" component={Contact}/>
-				</div>
+		<React.Fragment>
+		<CssBaseline />
+			<Container maxWidth="sm">
+				<Router>
+					<div>
+						<h1>Single page add</h1>
+						<ul>
+							<li><NavLink  to="/">Home</NavLink></li>
+							<li><NavLink  to="/About">About</NavLink></li>
+							<li><NavLink  to="/Contact">Contact</NavLink></li>
+						</ul>
+						<div className="content">
+							<Route path="/" exact component={Home}/>
+							<Route path="/About" component={About}/>
+							<Route path="/Contact" component={Contact}/>
+						</div>
 
-			</div>
-			</Router>
+					</div>
+				</Router>
+			</Container>
+		</React.Fragment>
 	);		
 }
 
